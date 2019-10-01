@@ -1,24 +1,25 @@
 // https://github.com/yagop/node-telegram-bot-api/blob/master/doc/usage.md#events
 
-//Require da api do BoT
+//Require das Api´s
 const TelegramBot = require('node-telegram-bot-api')
+var pl = require('./node_modules/tau-prolog/modules/core.js');
+require('./node_modules/tau-prolog/modules/lists.js')(pl)
+
+//Criar Session do Tau-Prolog
+var session = pl.create(100);
 //Uso do Token do Telegeram
-const TOKEN = '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q' //BoT TOKEM NÂO MECHER POR FAVOR
+const TOKEN = '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q' //BoT TOKEM || NÂO MECHER POR FAVOR
 
 //Construção do BoT
 const bot = new TelegramBot(TOKEN, { polling: true })
 
 //Console log das entradas das menssagens
-//bot.on( 'message', ( msg ) => console.log( 'msg', msg ) )
+bot.on( 'message', ( msg ) => console.log( 'msg', msg ) )
+
+//Receber Texto do BoT
 
 
-// Teste Tau-Prolog
-var pl = require('./node_modules/tau-prolog/modules/core.js');
-require('./node_modules/tau-prolog/modules/lists.js')(pl)
-
-var session = pl.create(100);
-
-// Load the program
+// Regras Prolog usar "+" entre as linhas e ";" no final
 var program =
     "humano(joao)." +
     "humano(maria)." +
@@ -28,10 +29,10 @@ var program =
     "homem(pedro).";
 session.consult(program);
 
-// Query the goal
+// Consulta 
 session.query("humano(X).");
 
-// Show answers
+// Mostra a resposta no bot
 bot.on('message', (msg) => {
     session.answers(x => bot.sendMessage(msg.chat.id, pl.format_answer(x)));
 })
