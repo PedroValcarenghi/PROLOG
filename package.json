@@ -1,0 +1,22 @@
+{
+  "name": "prolog_anpp",
+  "version": "1.0.0",
+  "description": "Teste para I.A L.P",
+  "main": "Index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedroValcarenghi/PROLOG_ANPP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PedroValcarenghi/PROLOG_ANPP/issues"
+  },
+  "homepage": "https://github.com/PedroValcarenghi/PROLOG_ANPP#readme",
+  "dependencies": {
+    "tau-prolog": "^0.2.66"
+  }
+}
