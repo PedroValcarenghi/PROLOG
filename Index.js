@@ -9,11 +9,11 @@ const bot = new TelegramBot(TOKEN, { polling: true })
 //   bot.sendMessage(msg.chat.id, `Olá ${msg.from.first_name}, bem vindo ao Devs SC!! Conte-nos um pouco sobre você, com o que trabalha e onde, se possivel é claro`)
 // })
 
-//bot.on( 'message', ( msg ) => console.log( 'msg', msg ) )
+bot.on( 'message', ( msg ) => console.log( 'msg', msg ) )
 
-bot.on("message", ( msg ) => {
-    let texto = bot.onText('texto', msg)
-})
+// bot.on("message", ( msg ) => {
+//     let texto = bot.onText('texto', msg)
+// })
 
 // Teste Tau Prolog
 
@@ -36,10 +36,10 @@ session.consult(program);
 //var item = process.argv[2];
 
 // Query the goal
-session.query(texto);
+session.query("humano(X).");
 
 // Show answers
-session.answers(x => console.log(pl.format_answer(x)));
+ session.answers(x => console.log(pl.format_answer(x)));
 
-
+//bot.sendMessage(pl.format_answer(y)); //Text para mandar menssagems 
 
