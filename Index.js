@@ -9,20 +9,36 @@ const TOKEN = '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q' //BoT TOKEM || NÂ
 //Construção do BoT
 const bot = new TelegramBot(TOKEN, { polling: true });
 
+var pl = require('./node_modules/tau-prolog/modules/core.js');
+require('./node_modules/tau-prolog/modules/lists.js')(pl)
+
+//Criar Session do Tau-Prolog
+var session = pl.create(100);
+
+// Regras Prolog usar "+" entre as linhas e ";" no final
+var program =
+    "humano(joao)." +
+    "humano(maria)." +
+    "humano(pedro)." +
+    "mulher(maria)." +
+    "homem(joao)." +
+    "homem(pedro).";
+session.consult(program);
+
+var txt;
 //Console log das entradas das menssagens
-bot.on( 'message', ( msg ) => console.log( 'msg', msg ) );
-
-
-
-//Receber Texto do BoT
-var txt ;
-bot.on('message', (msg) => txt = ('msg', msg.text))
-console.log(txt);
-
-
+bot.on('message', (msg) => {
+    console.log('msg', msg)
+    txt = msg.text
+    // Consulta 
+    session.query(txt);
+});
 // Mostra a resposta no bot
-// bot.on('message', (msg) => {
-//     session.answers(x => bot.sendMessage(msg.chat.id, pl.format_answer(x)));
-// })
+bot.on('message', (msg) => session.answers(x => {
+    if (x == true) {
+        bot.sendMessage(msg.chat.id, pl.format_answer(x));
+    }
+})
+)
 
 
