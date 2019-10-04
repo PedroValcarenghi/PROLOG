@@ -12,7 +12,7 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 //Puxar Pergunta
 
 const prolog = require('./Prolog');
-
+//Teste Pati
 var txt;
 
 //Query para Prolog
