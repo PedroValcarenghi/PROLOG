@@ -145,6 +145,14 @@ const queryM = (msg) => {
 
 };
 
+const start = (msg) => {
+    bot.sendMessage(msg.chat.id, "g gosto")
+    bot.sendMessage(msg.chat.id, "n não gosto")
+    bot.sendMessage(msg.chat.id, "Generos :")
+    bot.sendMessage(msg.chat.id, "Rock")
+    bot.sendMessage(msg.chat.id, "Pop")
+}
+
 // bot.on('message', (msg) => {
 //     console.log('msg', msg)
 //     txt = msg.text
@@ -153,6 +161,16 @@ const queryM = (msg) => {
 // });
 
 bot.onText(/\/m (.*)/, queryM)
+
+bot.onText(/\/start/, (msg) =>
+{
+bot.sendMessage(msg.chat.id, "/g gosto");
+bot.sendMessage(msg.chat.id, "/n não gosto");
+bot.sendMessage(msg.chat.id, "Generos :");
+bot.sendMessage(msg.chat.id, "Rock");
+bot.sendMessage(msg.chat.id, "Pop");
+}
+)
 
 //session.answers(x => console.log(pl.format_answer(x)))
 

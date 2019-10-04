@@ -3,7 +3,7 @@ require('./node_modules/tau-prolog/modules/lists.js')(pl)
 
 //Criar Session do Tau-Prolog
 var session = pl.create(100);
-
+function pergunta(txt){
 // Regras Prolog usar "+" entre as linhas e ";" no final
 // musica (Nome da Música, Gênero, Artista, Link do Spotify)
 var program =
@@ -106,7 +106,10 @@ var program =
 session.consult(program);
 
 // Consulta 
-session.query("musica(X, Y, Z, A).");
+session.query(txt);
 
 session.answers(x => console.log(pl.format_answer(x)));
 
+
+
+}
