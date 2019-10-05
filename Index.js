@@ -16,21 +16,38 @@ const prolog = require('./Prolog');
 var txt;
 
 //Query para Prolog
-function queryM(msg) {
-    console.log('texto :',msg.text.substring(7));
+function playlist(msg) {
+    console.log('Texto :',msg.text.substring(7));
     let resp = prolog.pergunta(txt);
     console.log(resp);
 };
+var like = [];
+function gosta(msg) {
+    console.log('texto :',msg.text.substring(3));
+    let g = msg.text; 
+    like.push();
+    bot.sendMessage(msg.chat.id, like);
+};
+var dislike = [];
+function Ngosta(msg) {
+    console.log('texto :',msg.text.substring(4));
+    dislike.push(msg.text.substring(4));
+    bot.sendMessage(msg.chat.id, dislike);
+};
+
 
 //Boas Vindas 
 function start(msg) {
-    bot.sendMessage(msg.chat.id, "/g Gosto \n /ng Não Gosto \n \t Generos: \n Rock \n Pop ");
+    bot.sendMessage(msg.chat.id, "/G Gosto \n /NG Não Gosto \n \t Generos: \n Rock \n Pop ");
 }
 //Chamada de Query
-bot.onText(/\/Query (.*)/, (msg) => queryM(msg));
+bot.onText(/\/Playlist (.*)/, (msg) => playlist(msg));
 //Chamada de Start
 bot.onText(/\/start/, (msg) => start(msg));
-
+//Chmada Gosto
+bot.onText(/\/G/, (msg) => gosta(msg));
+//Chamada Não-Gosto
+bot.onText(/\/NG/, (msg) => Ngosta(msg));
 
 
 

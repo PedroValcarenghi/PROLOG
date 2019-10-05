@@ -18,13 +18,11 @@ module.exports = {
         session.consult(program);
 
         // Consulta 
-        session.query("humano(pedro).");
+        session.query("humano(X).");
         //Resposta
         session.answers(x => {
-                console.log('X == ',x)
-                resp.push(x)
-               
-                
+                console.log( pl.format_answer(x))
+                resp.push(pl.format_answer(x))
         });
         return (resp)
     }
