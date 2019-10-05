@@ -36,8 +36,8 @@ var program =
     // "musica('Meu Abrigo',['Pop'],'Melim','https://open.spotify.com/track/17T7czFcChzCQrJzO4Qn1W')." +
     // "musica('Ouvi Dizer',['Pop'], 'Melim','https://open.spotify.com/track/4onTqyC1g15jJFOzHJ7h6q')." +
     // "musica('Dois Corações',['Pop'], 'Melim','https://open.spotify.com/track/5hq05mbpGvtUihRa3cPrhQ')." +
-    // "musica('Pupila',['Pop'], 'Anavitória, 'https://open.spotify.com/track/7Gk5OrMYaMRtT2JmgJVAfk')." +
-    // "musica('Shalow',['Pop','Rock', 'Country'], ['Lady Gaga','Bradley Cooper'],'https://open.spotify.com/track/6QfS2wq5sSC1xAJCQsTSlj',)." +
+    // "musica('Pupila',['Pop'], 'Anavitória', 'https://open.spotify.com/track/7Gk5OrMYaMRtT2JmgJVAfk')." +
+    // "musica('Shalow',['Pop','Rock', 'Country'], ['Lady Gaga','Bradley Cooper'],'https://open.spotify.com/track/6QfS2wq5sSC1xAJCQsTSlj')." +
     // "musica('Photograph',['Pop'], 'Ed Sheeran','https://open.spotify.com/track/1HNkqx9Ahdgi1Ixy2xkKkL')." +
     // "musica('The Scientist', ['Pop', 'Rock'],'Coldplay','https://open.spotify.com/track/75JFxkI2RXiU7L9VXzMkle')." +
     // "musica('Era uma vez', ['Pop'],'Kell Smith','https://open.spotify.com/track/4xeDAaJVuTCth5f99VVNJF')." +
