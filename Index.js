@@ -20,18 +20,19 @@ var resp ;
 var like = [];
 function gosta(msg) {
     console.log('texto :',msg.text.substring(3));
-    like.push(msg.text.substring(3));
+    like = (msg.text.substring(3));
     console.log(like)
     //bot.sendMessage(msg.chat.id,like[0]);
 };
 var dislike = [];
 function Ngosta(msg) {
     console.log('texto :',msg.text.substring(4));
-    dislike.push(msg.text.substring(4));
+    dislike = (msg.text.substring(4));
     //bot.sendMessage(msg.chat.id, dislike[0]);
 };
 function playlist(msg) {
-    resp = prolog.pergunta(like[0],dislike[0]);
+    resp = prolog.pergunta(like,dislike);
+    console.log("resp index :", resp);
     bot.sendMessage(msg.chat.id,resp)
 };
 //Boas Vindas 
