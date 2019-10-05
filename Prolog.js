@@ -1,20 +1,36 @@
 module.exports = {
-    pergunta(txt) {
+    pergunta(like,dislike) {
+        like = 'Alternativo';
         var pl = require('./node_modules/tau-prolog');
         //Criar Session do Tau-Prolog
         var session = pl.create(100);
-        let resp = [];
+        let resp = 'oi';
+        let musicas = [];
         // Regras Prolog usar "+" entre as linhas e ";" no final
         // musica (Nome da Música, Gênero, Artista, Link do Spotify)
         var program =
-            "musica('Creep', ['Alternativo', 'Independente'], 'Radiohead', 'https://open.spotify.com/track/6b2oQwSGFkzsMtQruIWm2p?si=P65FyMvbTS6LqMTCGx9_dA').";
+            
+            "musica('Creep', ['Alternativo', 'Independente'], 'Radiohead', 'https://open.spotify.com/track/6b2oQwSGFkzsMtQruIWm2p?si=P65FyMvbTS6LqMTCGx9_dA')." +
+            "musica('Anna Júlia', ['Alternativo', 'Pop'], 'Los Hermanos', 'https://open.spotify.com/track/0aASUtDb1N96NJDwmWj5Gf?si=Cui489eGSnKIu04Bnq5HcA')." +
+            "musica('Losin My Religion', ['Pop', 'Rock'], 'REM', 'https://open.spotify.com/track/31AOj9sFz2gM0O3hMARRBx?si=YmnX_kNRTz2qP5hM349P9A')."+
+
+            "play(select(musica))"
+
+
+            "gosta(Y):- musica(_,[Y|_],_,_), Y=" + like;
+           
         session.consult(program);
         // Consulta 
-        session.query("musica(_,Y,_,A).");
+        session.query("gosta(Y).");
         //Resposta
         session.answers(x =>
-           resp = pl.format_answer(x)
+            console.log(pl.format_answer(x))
+            //musicas = pl.format_answer(x)
+            //(select(Y,like,dislike) -> )
         );
-        return (resp)
+        //console.log(playlist);
+        //console.log(resp);
+        return ('oi')
+        
     }
 }
