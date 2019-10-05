@@ -13,26 +13,26 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 
 const prolog = require('./Prolog');
 //Teste Pati
-var txt;
-
+var txt = 'oi';
+var resp ;
 //Query para Prolog
 function playlist(msg) {
-    console.log('Texto :',msg.text.substring(7));
-    let resp = prolog.pergunta(txt);
-    console.log(resp);
+    console.log('Texto :',msg.text.substring(10));
+    resp = prolog.pergunta(txt);
+    bot.sendMessage(msg.chat.id,resp);
 };
 var like = [];
 function gosta(msg) {
     console.log('texto :',msg.text.substring(3));
-    let g = msg.text; 
-    like.push();
-    bot.sendMessage(msg.chat.id, like);
+    like.push(msg.text.substring(3));
+    console.log(like)
+    //bot.sendMessage(msg.chat.id,like[0]);
 };
 var dislike = [];
 function Ngosta(msg) {
     console.log('texto :',msg.text.substring(4));
     dislike.push(msg.text.substring(4));
-    bot.sendMessage(msg.chat.id, dislike);
+    //bot.sendMessage(msg.chat.id, dislike[0]);
 };
 
 
@@ -45,9 +45,9 @@ bot.onText(/\/Playlist (.*)/, (msg) => playlist(msg));
 //Chamada de Start
 bot.onText(/\/start/, (msg) => start(msg));
 //Chmada Gosto
-bot.onText(/\/G/, (msg) => gosta(msg));
+bot.onText(/\/G (.*)/, (msg) => gosta(msg));
 //Chamada Não-Gosto
-bot.onText(/\/NG/, (msg) => Ngosta(msg));
+bot.onText(/\/NG (.*)/, (msg) => Ngosta(msg));
 
 
 
