@@ -1,7 +1,7 @@
 
 
 module.exports = {
-    pergunta(txt) {
+    pergunta(txt,msg) {
         var pl = require('./node_modules/tau-prolog');
         //Criar Session do Tau-Prolog
         var session = pl.create(100);
@@ -9,20 +9,15 @@ module.exports = {
         // Regras Prolog usar "+" entre as linhas e ";" no final
         // musica (Nome da Música, Gênero, Artista, Link do Spotify)
         var program =
-            "humano(joao)." +
-            "humano(maria)." +
-            "humano(pedro)." +
-            "mulher(maria)." +
-            "homem(joao)." +
-            "homem(pedro).";
+        "musica('Creep', ['Alternativo', 'Independente'], 'Radiohead', 'https://open.spotify.com/track/6b2oQwSGFkzsMtQruIWm2p?si=P65FyMvbTS6LqMTCGx9_dA').";
         session.consult(program);
 
         // Consulta 
-        session.query("humano(X).");
+        session.query("musica(X,Y,Z,A).");
         //Resposta
         session.answers(x => {
-                console.log( pl.format_answer(x))
-                resp.push(pl.format_answer(x))
+                console.log('X == ',pl.format_answer(x))
+                
         });
         return (resp)
     }
