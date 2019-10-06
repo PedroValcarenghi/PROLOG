@@ -14,26 +14,36 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 const prolog = require('./Prolog');
 //Teste Pati
 var txt = 'oi';
-var resp ;
+var resp = [];
+var i;
 //Query para Prolog
 
 var like = [];
 function gosta(msg) {
-    console.log('texto :',msg.text.substring(3));
+    console.log('texto :', msg.text.substring(3));
     like = (msg.text.substring(3));
     console.log(like)
     //bot.sendMessage(msg.chat.id,like[0]);
 };
 var dislike = [];
 function Ngosta(msg) {
-    console.log('texto :',msg.text.substring(4));
+    console.log('texto :', msg.text.substring(4));
     dislike = (msg.text.substring(4));
     //bot.sendMessage(msg.chat.id, dislike[0]);
 };
 function playlist(msg) {
-    resp = prolog.pergunta(like,dislike);
-    console.log("resp index :", resp);
-    bot.sendMessage(msg.chat.id,resp)
+    resp = prolog.pergunta(like, dislike);
+    //console.log('Index', resp)
+    let fim = resp.indexOf('false.');
+    if (fim) {
+        console.log('false é em :',fim);
+        resp.splice(fim);
+        console.log('Index', resp)
+    }
+    console.log(fim);
+    for (i = 0; i < resp.length; i++) {
+        bot.sendMessage(msg.chat.id, resp[i])
+    }
 };
 //Boas Vindas 
 function start(msg) {

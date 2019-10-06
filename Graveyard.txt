@@ -225,3 +225,5 @@ const logErrorQ = (msg) => (err) =>{
 const logSuccessQ = (msg) =>{
     console.log("Success: " + msg.text.substring(7))
 }
+
+play("+like+").
