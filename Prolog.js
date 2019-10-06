@@ -1,6 +1,10 @@
+//Modulo para exportar para Inde.js
 module.exports = {
+    //Função pergunta
     pergunta(like, dislike) {
-        like = 'Alternativo';
+        //Like para teste :
+        //like = 'Alternativo';
+        //Cria a variavel pl contendo os modulos do tau
         var pl = require('./node_modules/tau-prolog');
         //Criar Session do Tau-Prolog
         var session = pl.create(100);
@@ -21,11 +25,20 @@ module.exports = {
             "musica('Seven Nation Army',['Alternativo','Rock'],'The White Stripes','https://open.spotify.com/track/7rbkDq2MsbWZAPiZv4uaQn')." +
             "musica('Somewhere Only We Know',['Alternativo','Pop'],'Keane','https://open.spotify.com/track/0ll8uFnc0nANY35E0Lfxvg')." +
 
-        "play(Z) :- musica(_,_,_,Z), Y=" + like + ".";
+            "play(Z) :- musica(_,_,_,Z), Y=" + like + ".";
 
         session.consult(program);
-        // Consulta 
+        //TO-DO
+
+
+
+        // Consulta -- Ainda não termindada--
         session.query("musica(_,Genero,_,Musica).");
+
+
+
+
+        //TO- DO
         //Array de Resposta
         var resp = [];
         //Variavel callback para respostas pois o tau e assincrono
@@ -42,7 +55,9 @@ module.exports = {
             }
 
         } while (fim == -1);
+        //Retirar o 'false.' atraves do splice 
         resp.splice(fim);
+        //retorna o array com as musicas
         return (resp);
     }
 }

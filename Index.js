@@ -2,6 +2,10 @@
 
 const TelegramBot = require('node-telegram-bot-api')
 
+//Puxar Pergunta que é uma função de prolog.js
+
+const prolog = require('./Prolog');
+
 //Uso do Token do Telegeram
 
 const TOKEN = '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q' //BoT TOKEM || NÂO MECHER 
@@ -9,10 +13,6 @@ const TOKEN = '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q' //BoT TOKEM || NÂ
 //Construção do BoT
 
 const bot = new TelegramBot(TOKEN, { polling: true });
-
-//Puxar Pergunta que é uma função de prolog.js
-
-const prolog = require('./Prolog');
 
 //Declaração de variaveis.
 
