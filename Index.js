@@ -1,24 +1,28 @@
-// https://github.com/yagop/node-telegram-bot-api/blob/master/doc/usage.md#events
-
 //Require das Api´s
+
 const TelegramBot = require('node-telegram-bot-api')
 
 //Uso do Token do Telegeram
-const TOKEN = '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q' //BoT TOKEM || NÂO MECHER POR FAVOR
+
+const TOKEN = '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q' //BoT TOKEM || NÂO MECHER 
 
 //Construção do BoT
+
 const bot = new TelegramBot(TOKEN, { polling: true });
 
-//Puxar Pergunta
+//Puxar Pergunta que é uma função de prolog.js
 
 const prolog = require('./Prolog');
-//Teste Pati
+
+//Declaração de variaveis.
+
 var txt = 'oi';
 var resp = [];
 var i;
-//Query para Prolog
-
+var fim;
 var like = [];
+
+//
 function gosta(msg) {
     console.log('texto :', msg.text.substring(3));
     like = (msg.text.substring(3));
@@ -33,14 +37,9 @@ function Ngosta(msg) {
 };
 function playlist(msg) {
     resp = prolog.pergunta(like, dislike);
-    //console.log('Index', resp)
-    let fim = resp.indexOf('false.');
-    if (fim) {
-        console.log('false é em :',fim);
-        resp.splice(fim);
-        console.log('Index', resp)
-    }
-    console.log(fim);
+    //Mandar as Musicas :
+
+    //Passa o array mandando as musicas
     for (i = 0; i < resp.length; i++) {
         bot.sendMessage(msg.chat.id, resp[i])
     }
@@ -49,7 +48,7 @@ function playlist(msg) {
 function start(msg) {
     bot.sendMessage(msg.chat.id, "/G Gosto \n /NG Não Gosto \n \t Generos: \n Rock \n Pop ");
 }
-//Chamada de Query
+//Chamada de mostragem
 bot.onText(/\/Playlist/, (msg) => playlist(msg));
 //Chamada de Start
 bot.onText(/\/start/, (msg) => start(msg));

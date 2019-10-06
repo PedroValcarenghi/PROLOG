@@ -1,5 +1,8 @@
 ------Codigo Morto------
 
+// https://github.com/yagop/node-telegram-bot-api/blob/master/doc/usage.md#events
+
+
 var pl = require('./node_modules/tau-prolog/modules/core.js');
 require('./node_modules/tau-prolog/modules/lists.js')(pl)
 

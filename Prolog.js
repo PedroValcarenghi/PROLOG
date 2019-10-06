@@ -4,7 +4,8 @@ module.exports = {
         var pl = require('./node_modules/tau-prolog');
         //Criar Session do Tau-Prolog
         var session = pl.create(100);
-        let musicas = [];
+        //Cria uma vairivel para testar se a um false.
+        var fim = -1;
         // Regras Prolog usar "+" entre as linhas e ";" no final
         // musica (Nome da Música, Gênero, Artista, Link do Spotify)
         var program =
@@ -18,14 +19,23 @@ module.exports = {
         session.consult(program);
         // Consulta 
         session.query("musica(_,Genero,_,Musica).");
-        //Resposta
+        //Array de Resposta
         var resp = [];
+        //Variavel callback para respostas pois o tau e assincrono
         var callback = function (answer) { resp.push(pl.format_answer(answer)); };
+        //laço para chamar todas as respostas
+        do {
+            //Vê se a um false no array
 
-        session.answer(callback);
-        session.answer(callback);
-        session.answer(callback);   
-        session.answer(callback); 
+            fim = resp.indexOf('false.');
+
+            //teste por segurança 
+            if (fim == -1) {
+                session.answer(callback);
+            }
+
+        } while (fim == -1);
+        resp.splice(fim);
         return (resp);
     }
 }
