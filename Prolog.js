@@ -1,15 +1,15 @@
 //Modulo para exportar para Inde.js
 module.exports = {
     //Função pergunta
-    pergunta(like, dislike) {
-        //Like para teste :
-        //like = 'Alternativo';
+    pergunta(mus,gen) {
         //Cria a variavel pl contendo os modulos do tau
         var pl = require('./node_modules/tau-prolog');
         //Criar Session do Tau-Prolog
         var session = pl.create(100);
         //Cria uma vairivel para testar se a um false.
-        var fim = -1;
+        var fim;
+        //Array de Resposta
+        var resp = [];
         // Regras Prolog usar "+" entre as linhas e ";" no final
         // musica (Nome da Música, Gênero, Artista, Link do Spotify)
         var program =
@@ -25,36 +25,45 @@ module.exports = {
             "musica('Seven Nation Army',['Alternativo','Rock'],'The White Stripes','https://open.spotify.com/track/7rbkDq2MsbWZAPiZv4uaQn')." +
             "musica('Somewhere Only We Know',['Alternativo','Pop'],'Keane','https://open.spotify.com/track/0ll8uFnc0nANY35E0Lfxvg')." +
 
-            "play(Z) :- musica(_,_,_,Z), Y=" + like + ".";
+            //rock
+            "musica('Yesterday', ['Rock', 'Pop'], 'Beatles', 'https://open.spotify.com/track/3BQHpFgAp4l80e1XslIjNI?si=Ki5M61xiSLOxAI6PrZd9OA')." +
+            "musica('Bohemian Rhapsody', ['Rock', 'Pop'], 'Queen', 'https://open.spotify.com/track/3z8h0TU7ReDPLIbEnYhWZb?si=WAklTnswTg-0PhPAcVBEFA')." +
+            "musica('Love Of My Life', ['Rock'], 'Queen', 'https://open.spotify.com/track/4JO4B5UbDaBMX3uKOkWq3T?si=Ok-3mahVQ0KfyrWSggQcXg')." +
+            "musica('Sweet Child O Mine', ['Rock', 'Heavy Metal'], 'Guns N Roses', 'https://open.spotify.com/track/7o2CTH4ctstm8TNelqjb51?si=w5BGmVRTTQOv8tK2OV93VQ')." +
+            "musica('Californication', ['Rock', 'Alternativo'], 'Red Hot Chili Peppers', 'https://open.spotify.com/track/48UPSzbZjgc449aqz8bxox?si=7drqksWMTbSLMdrHq-ym2A')." +
+            "musica('Wish You Were Here',['Rock'],'Pink Floyd','https://open.spotify.com/track/0myeTJ993kXE4vN0IPchcc')." +
+            "musica('Another Brick In The Wall',['Rock'],'Pink Floyd','https://open.spotify.com/track/7rPzEczIS574IgPaiPieS3')." +
+            "musica('Wonderwall',['Rock','Alternativo'],'Oasis','https://open.spotify.com/track/5qqabIl2vWzo9ApSC317sa')." +
+            "musica('Hotel California',['Rock'],'Eagles','https://open.spotify.com/track/40riOy7x9W7GXjyGp4pjAv')." +
+            "musica('Nothing Else Matters',['Rock','Heavy Metal'],'Metallica','https://open.spotify.com/track/0nLiqZ6A27jJri2VCalIUs').";
 
         session.consult(program);
         //TO-DO
 
-
-
         // Consulta -- Ainda não termindada--
-        session.query("musica(_,Genero,_,Musica).");
-
-
-
-
+        if (mus != 'Música'){
+            session.query("musica('" + mus + "'," + gen + ",Cantor ,Link ).");
+        }else if (gen != 'Genero') {
+            session.query("musica(" + mus + "," + gen + ",Cantor ,Link ).");
+        } else {
+            resp[0] = 'Erro de Consulta !'
+            return (resp);
+        }
         //TO- DO
-        //Array de Resposta
-        var resp = [];
         //Variavel callback para respostas pois o tau e assincrono
         var callback = function (answer) { resp.push(pl.format_answer(answer)); };
         //laço para chamar todas as respostas
         do {
             //Vê se a um false no array
-
             fim = resp.indexOf('false.');
-
             //teste por segurança 
             if (fim == -1) {
                 session.answer(callback);
             }
-
         } while (fim == -1);
+        if (fim == 0){
+            resp[1] = ('Erro na Consulta !')
+        }
         //Retirar o 'false.' atraves do splice 
         resp.splice(fim);
         //retorna o array com as musicas
