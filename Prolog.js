@@ -21,7 +21,7 @@ module.exports = {
             "musica('Whats up?', 'Alternativo', '4 Non Blondes', 'https://open.spotify.com/track/0jWgAnTrNZmOGmqgvHhZEm?si=m0UBwIoNRGWxIzCX3ODvyw')." +
             "musica('Like a Stone', 'Alternativo', 'Audioslave', 'https://open.spotify.com/track/3YuaBvuZqcwN3CEAyyoaei?si=kqbkvjFiQVSaqh_froIpvA')." +
             "musica('Let Her Go','Alternativo','Passenger','https://open.spotify.com/track/1RKtWeu7meOKfLS4OikFd8')." +
-            "musica('Take Me To Church', Alternativo','Hozier','https://open.spotify.com/track/70LrxJ5u19umvrXbC19g20')." +
+            "musica('Take Me To Church', 'Alternativo','Hozier','https://open.spotify.com/track/70LrxJ5u19umvrXbC19g20')." +
             "musica('Seven Nation Army','Alternativo','The White Stripes','https://open.spotify.com/track/7rbkDq2MsbWZAPiZv4uaQn')." +
             "musica('Somewhere Only We Know','Alternativo','Keane','https://open.spotify.com/track/0ll8uFnc0nANY35E0Lfxvg')." +
 
