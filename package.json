@@ -4,7 +4,7 @@
   "description": "Teste para I.A L.P",
   "main": "Index.js",
   "scripts": {
-    "start": "node .",
+    "start": "node Index.js",
      "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
