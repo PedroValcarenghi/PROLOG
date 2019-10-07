@@ -48,7 +48,7 @@ function playlist(msg, musicas, gen) {
 };
 //Boas Vindas 
 function start(msg) {
-    bot.sendMessage(msg.chat.id, "/M Musica \n \n \t Generos: \n Rock \n Pop \n Alternativo \n Neofolk \n Blues \n  ");
+    bot.sendMessage(msg.chat.id, "/M Musica \n \n \t Generos: \n Rock \n Pop \n Alternativo \n Gospel \n MPB \n Funk \n Sertanejo \n Eletrônica \n");
 }
 //Chamada de Start
 bot.onText(/\/start/, (msg) => start(msg));
