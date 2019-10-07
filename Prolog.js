@@ -113,15 +113,20 @@ module.exports = {
 
         session.consult(program);
         //TO-DO
-        console.log(mus, gen , cant);
+        console.log(mus, gen, cant);
         // Consulta -- Ainda não termindada--
-        if (mus != 'Musica') {
+        if (mus == 'X' || gen == 'Y' || cant == 'z') {
+            console.log('teste');
+            session.query("musica(Musica , Genero , Cantor ,Link ).");
+        }
+        else if (mus != 'Musica') {
             session.query("musica('" + mus + "', Genero ,Cantor ,Link ).");
         } else if (gen != 'Genero') {
             session.query("musica(Musica ,'" + gen + "',Cantor ,Link ).");
         } else if (cant != 'Cantor') {
             session.query("musica(Musica , Genero ,'" + cant + "',Link ).");
-        } else {
+        }
+        else {
             resp[0] = 'Erro de Consulta !'
             return (resp);
         }
