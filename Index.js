@@ -19,6 +19,11 @@ const PORT = process.env.PORT || 5000
 
 console.log(PORT);
 
+fastify.listen(process.env.PORT, '0.0.0.0'), function (err) {
+    if (err) throw err
+    console.log(`server listening on ${fastify.server.address().port}`)
+  })
+
 //Construção do BoT
 
 const bot = new TelegramBot(TOKEN, { polling: true });
