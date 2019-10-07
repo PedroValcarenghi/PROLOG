@@ -11,7 +11,7 @@ const prolog = require('./Prolog');
 const TOKEN =
     //#region BoT TOKEM || NÂO MECHER 
     '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q'
-//#endregion
+    //#endregion
 
 //Construção do BoT
 
@@ -24,18 +24,20 @@ var mus;
 var gen;
 var i;
 var fim;
-
+var resp;
 //
 function genero(msg) {
     //Recebe o texto da musica
     gen = (msg.text.substring(3));
     mus = 'Música';
+    console.log(gen)
     playlist(msg, mus, gen);
 };
 function musica(msg) {
     //Recebe o texto da musica
     mus = (msg.text.substring(3));
     gen = 'Genero';
+    console.log(mus)
     playlist(msg, mus, gen);
 };
 function playlist(msg, musicas, gen) {

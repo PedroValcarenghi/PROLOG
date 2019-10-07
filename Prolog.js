@@ -12,6 +12,7 @@ module.exports = {
         var resp = [];
         // Regras Prolog usar "+" entre as linhas e ";" no final
         // musica (Nome da Música, Gênero, Artista, Link do Spotify)
+
         var program =
             //alternativo
             "musica('Creep', 'Alternativo', 'Radiohead', 'https://open.spotify.com/track/6b2oQwSGFkzsMtQruIWm2p?si=P65FyMvbTS6LqMTCGx9_dA')." +
@@ -21,7 +22,7 @@ module.exports = {
             "musica('Whats up?', 'Alternativo', '4 Non Blondes', 'https://open.spotify.com/track/0jWgAnTrNZmOGmqgvHhZEm?si=m0UBwIoNRGWxIzCX3ODvyw')." +
             "musica('Like a Stone', 'Alternativo', 'Audioslave', 'https://open.spotify.com/track/3YuaBvuZqcwN3CEAyyoaei?si=kqbkvjFiQVSaqh_froIpvA')." +
             "musica('Let Her Go','Alternativo','Passenger','https://open.spotify.com/track/1RKtWeu7meOKfLS4OikFd8')." +
-            "musica('Take Me To Church', Alternativo','Hozier','https://open.spotify.com/track/70LrxJ5u19umvrXbC19g20')." +
+            "musica('Take Me To Church', 'Alternativo','Hozier','https://open.spotify.com/track/70LrxJ5u19umvrXbC19g20')." +
             "musica('Seven Nation Army','Alternativo','The White Stripes','https://open.spotify.com/track/7rbkDq2MsbWZAPiZv4uaQn')." +
             "musica('Somewhere Only We Know','Alternativo','Keane','https://open.spotify.com/track/0ll8uFnc0nANY35E0Lfxvg')." +
 
@@ -35,7 +36,7 @@ module.exports = {
             "musica('Another Brick In The Wall','Rock','Pink Floyd','https://open.spotify.com/track/7rPzEczIS574IgPaiPieS3')." +
             "musica('Wonderwall','Rock','Oasis','https://open.spotify.com/track/5qqabIl2vWzo9ApSC317sa')." +
             "musica('Hotel California','Rock','Eagles','https://open.spotify.com/track/40riOy7x9W7GXjyGp4pjAv')." +
-            "musica('Nothing Else Matters','Rock','Metallica','https://open.spotify.com/track/0nLiqZ6A27jJri2VCalIUs').";
+            "musica('Nothing Else Matters','Rock','Metallica','https://open.spotify.com/track/0nLiqZ6A27jJri2VCalIUs')." +
 
             //pop
             "musica('Meu Abrigo','Pop','Melim','https://open.spotify.com/track/17T7czFcChzCQrJzO4Qn1W')." +
@@ -81,7 +82,7 @@ module.exports = {
             "musica('Wake Me Up','Eletrônica','Avicii','https://open.spotify.com/track/3B0irDyS69y5eAz15xV2Ee')." +
             "musica('Hear Me Now','Eletrônica','Alok','https://open.spotify.com/track/39cmB3ZoTOLwOTq7tMNqKa')." +
             "musica('Get Lucky','Eletrônica','Daft Punk','https://open.spotify.com/track/69kOkLUCkxIZYexIgSG8rq')." +
-            "musica('Happier','Eletrônica','Marshmello,'https://open.spotify.com/track/2dpaYNEQHiRxtZbfNsse99')." +
+            "musica('Happier','Eletrônica','Marshmello','https://open.spotify.com/track/2dpaYNEQHiRxtZbfNsse99')." +
             "musica('The Nights','Eletrônica','Avicii','https://open.spotify.com/track/0ct6r3EGTcMLPtrXHDvVjc')." +
             "musica('Friends','Eletrônica',['Marshmello','Anne-marie'],'https://open.spotify.com/track/08bNPGLD8AhKpnnERrAc6G')." +
             "musica('Hey Brother','Eletrônica','Avicii','https://open.spotify.com/track/2byhQfeJR3fPBFjM1ENPgT')." +
@@ -98,26 +99,27 @@ module.exports = {
             "musica('Sou Casa','Gospel','Elizeu Alves','https://open.spotify.com/track/5TRRTSIsEzdxjG56pKBXvi')." +
             "musica('Jó','Gospel','Midian Lima','https://open.spotify.com/track/4Rl8zW6Jx7fGePFjp9IBh7')." +
 
-            //MPB
-            "musica('Trem-Bala','MPB','Ana Vilela','https://open.spotify.com/track/66O1SfDryBYk9i3RcV5AXq')." +
-            "musica('Sozinho','MPB','Caetano Veloso','https://open.spotify.com/track/6amIJNwZyP28zjn2k1bic6')." +
-            "musica('Chão de Giz','MPB','Zé Ramalho','https://open.spotify.com/track/68mW6JloRbnPziPftal3Nm')." +
-            "musica('Velha Infância','MPB','Tribalistas','https://open.spotify.com/track/3KYlOzxN5xO7eEauO1VF06')." +
-            "musica('Gostava Tanto de Você','MPB','Tim Maia','https://open.spotify.com/track/6eDMElxeeKXs4DHTb0dGP0')." +
-            "musica('Anunciação','MPB','Alceu Valença','https://open.spotify.com/track/661Ns9G25zHdih4qVshBO7')." +
-            "musica('Sinônimo','MPB','Zé Ramalho','https://open.spotify.com/track/5wn7dRsPFOd236GySyJqLx')." +
-            "musica('Eu Te Devoro','MPB','Djavan','https://open.spotify.com/track/2Px3PZ2qq2uFpRBpfVx8A5')." +
-            "musica('Oceano','MPB','Djavan','https://open.spotify.com/track/3l8Hah55x0c1wD13R4ZogI')." +
-            "musica('La Belle De Jour','MPB','Alceu Valença','https://open.spotify.com/track/0c8aqUb7e0K9uNhxejfV23').";
+            // //MPB
+            // "musica('Trem-Bala','MPB','Ana Vilela','https://open.spotify.com/track/66O1SfDryBYk9i3RcV5AXq')." +
+            // "musica('Sozinho','MPB','Caetano Veloso','https://open.spotify.com/track/6amIJNwZyP28zjn2k1bic6')." +
+            // "musica('Chão de Giz','MPB','Zé Ramalho','https://open.spotify.com/track/68mW6JloRbnPziPftal3Nm')." +
+            // "musica('Velha Infância','MPB','Tribalistas','https://open.spotify.com/track/3KYlOzxN5xO7eEauO1VF06')." +
+            // "musica('Gostava Tanto de Você','MPB','Tim Maia','https://open.spotify.com/track/6eDMElxeeKXs4DHTb0dGP0')." +
+            // "musica('Anunciação','MPB','Alceu Valença','https://open.spotify.com/track/661Ns9G25zHdih4qVshBO7')." +
+            // "musica('Sinônimo','MPB','Zé Ramalho','https://open.spotify.com/track/5wn7dRsPFOd236GySyJqLx')." +
+            // "musica('Eu Te Devoro','MPB','Djavan','https://open.spotify.com/track/2Px3PZ2qq2uFpRBpfVx8A5')." +
+            // "musica('Oceano','MPB','Djavan','https://open.spotify.com/track/3l8Hah55x0c1wD13R4ZogI')." +
+            // "musica('La Belle De Jour','MPB','Alceu Valença','https://open.spotify.com/track/0c8aqUb7e0K9uNhxejfV23').";
 
         session.consult(program);
         //TO-DO
-
         // Consulta -- Ainda não termindada--
         if (mus != 'Música'){
-            session.query("musica('" + mus + "'," + gen + ",Cantor ,Link ).");
-        }else if (gen != 'Genero') {
-            session.query("musica(" + mus + "," + gen + ",Cantor ,Link ).");
+            console.log('Música');
+            session.query("musica('"+mus+"', Genero ,Cantor ,Link ).");
+        }else if (gen != 'Genero'){
+            console.log('Genero');
+            session.query("musica(Música ,'" + gen + "',Cantor ,Link ).");
         } else {
             resp[0] = 'Erro de Consulta !'
             return (resp);
