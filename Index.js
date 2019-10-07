@@ -4,7 +4,7 @@ const TelegramBot = require('node-telegram-bot-api')
 
 //Puxar Pergunta que é uma função de prolog.js
 
-const prologfile = require('./prolog');
+const prologfile = require('./prolog.js');
 
 //Uso do Token do Telegeram
 
