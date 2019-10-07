@@ -15,15 +15,9 @@ const TOKEN =
     '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q'
     //#endregion
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || '0.0.0.0'
 
-console.log(PORT);
-
-fastify.listen(process.env.PORT, '0.0.0.0'), function (err) {
-    if (err) throw err
-    console.log(`server listening on ${fastify.server.address().port}`)
-  })
-
+console.log(`Listening on ${ PORT }`);
 //Construção do BoT
 
 const bot = new TelegramBot(TOKEN, { polling: true });
@@ -92,10 +86,6 @@ bot.onText(/\/M (.*)/, (msg) => musica(msg));
 bot.onText(/\/G (.*)/, (msg) => genero(msg));
 //Chamada por Cantor
 bot.onText(/\/C (.*)/, (msg) => cantor(msg));
-
-
-
-
 
 
 
