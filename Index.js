@@ -10,8 +10,14 @@ const prologfile = require('./Prolog');
 
 const TOKEN =
     //#region BoT TOKEM || NÂO MECHER 
+
+//Herokus 
     '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q'
     //#endregion
+
+const PORT = process.env.PORT || 5000
+
+console.log(PORT);
 
 //Construção do BoT
 
