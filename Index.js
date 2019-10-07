@@ -15,9 +15,6 @@ const TOKEN =
     '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q'
     //#endregion
 
-const PORT = process.env.PORT || '0.0.0.0'
-
-console.log(`Listening on ${ PORT }`);
 //Construção do BoT
 
 const bot = new TelegramBot(TOKEN, { polling: true });
