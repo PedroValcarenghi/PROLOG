@@ -3,7 +3,7 @@ module.exports = {
     //Função pergunta
     pergunta(mus, gen, cant) {
         //Cria a variavel pl contendo os modulos do tau
-        var pl = require('./node_modules/tau-prolog');
+        var pl = require('./node_modules/tau-prolog/modules/core');
         //Criar Session do Tau-Prolog
         var session = pl.create(100);
         //Cria uma vairivel para testar se a um false.
