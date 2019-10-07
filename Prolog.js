@@ -1,7 +1,7 @@
 //Modulo para exportar para Inde.js
 module.exports = {
     //Função pergunta
-    pergunta(mus,gen) {
+    pergunta(mus, gen, cant) {
         //Cria a variavel pl contendo os modulos do tau
         var pl = require('./node_modules/tau-prolog');
         //Criar Session do Tau-Prolog
@@ -99,27 +99,28 @@ module.exports = {
             "musica('Sou Casa','Gospel','Elizeu Alves','https://open.spotify.com/track/5TRRTSIsEzdxjG56pKBXvi')." +
             "musica('Jó','Gospel','Midian Lima','https://open.spotify.com/track/4Rl8zW6Jx7fGePFjp9IBh7')." +
 
-            // //MPB
-            // "musica('Trem-Bala','MPB','Ana Vilela','https://open.spotify.com/track/66O1SfDryBYk9i3RcV5AXq')." +
-            // "musica('Sozinho','MPB','Caetano Veloso','https://open.spotify.com/track/6amIJNwZyP28zjn2k1bic6')." +
-            // "musica('Chão de Giz','MPB','Zé Ramalho','https://open.spotify.com/track/68mW6JloRbnPziPftal3Nm')." +
-            // "musica('Velha Infância','MPB','Tribalistas','https://open.spotify.com/track/3KYlOzxN5xO7eEauO1VF06')." +
-            // "musica('Gostava Tanto de Você','MPB','Tim Maia','https://open.spotify.com/track/6eDMElxeeKXs4DHTb0dGP0')." +
-            // "musica('Anunciação','MPB','Alceu Valença','https://open.spotify.com/track/661Ns9G25zHdih4qVshBO7')." +
-            // "musica('Sinônimo','MPB','Zé Ramalho','https://open.spotify.com/track/5wn7dRsPFOd236GySyJqLx')." +
-            // "musica('Eu Te Devoro','MPB','Djavan','https://open.spotify.com/track/2Px3PZ2qq2uFpRBpfVx8A5')." +
-            // "musica('Oceano','MPB','Djavan','https://open.spotify.com/track/3l8Hah55x0c1wD13R4ZogI')." +
-            // "musica('La Belle De Jour','MPB','Alceu Valença','https://open.spotify.com/track/0c8aqUb7e0K9uNhxejfV23').";
+            //MPB
+            "musica('Trem-Bala','MPB','Ana Vilela','https://open.spotify.com/track/66O1SfDryBYk9i3RcV5AXq')." +
+            "musica('Sozinho','MPB','Caetano Veloso','https://open.spotify.com/track/6amIJNwZyP28zjn2k1bic6')." +
+            "musica('Chão de Giz','MPB','Zé Ramalho','https://open.spotify.com/track/68mW6JloRbnPziPftal3Nm')." +
+            "musica('Velha Infância','MPB','Tribalistas','https://open.spotify.com/track/3KYlOzxN5xO7eEauO1VF06')." +
+            "musica('Gostava Tanto de Você','MPB','Tim Maia','https://open.spotify.com/track/6eDMElxeeKXs4DHTb0dGP0')." +
+            "musica('Anunciação','MPB','Alceu Valença','https://open.spotify.com/track/661Ns9G25zHdih4qVshBO7')." +
+            "musica('Sinônimo','MPB','Zé Ramalho','https://open.spotify.com/track/5wn7dRsPFOd236GySyJqLx')." +
+            "musica('Eu Te Devoro','MPB','Djavan','https://open.spotify.com/track/2Px3PZ2qq2uFpRBpfVx8A5')." +
+            "musica('Oceano','MPB','Djavan','https://open.spotify.com/track/3l8Hah55x0c1wD13R4ZogI')." +
+            "musica('La Belle De Jour','MPB','Alceu Valença','https://open.spotify.com/track/0c8aqUb7e0K9uNhxejfV23').";
 
         session.consult(program);
         //TO-DO
+        console.log(mus, gen , cant);
         // Consulta -- Ainda não termindada--
-        if (mus != 'Música'){
-            console.log('Música');
-            session.query("musica('"+mus+"', Genero ,Cantor ,Link ).");
-        }else if (gen != 'Genero'){
-            console.log('Genero');
-            session.query("musica(Música ,'" + gen + "',Cantor ,Link ).");
+        if (mus != 'Musica') {
+            session.query("musica('" + mus + "', Genero ,Cantor ,Link ).");
+        } else if (gen != 'Genero') {
+            session.query("musica(Musica ,'" + gen + "',Cantor ,Link ).");
+        } else if (cant != 'Cantor') {
+            session.query("musica(Musica , Genero ,'" + cant + "',Link ).");
         } else {
             resp[0] = 'Erro de Consulta !'
             return (resp);
@@ -136,11 +137,13 @@ module.exports = {
                 session.answer(callback);
             }
         } while (fim == -1);
-        if (fim == 0){
-            resp[1] = ('Erro na Consulta !')
+        //Testa se só voltou falso
+        if (fim == 0) {
+            resp[0] = ('Erro na Consulta !')
+        } else {
+            //Retirar o 'false.' atraves do splice 
+            resp.splice(fim);
         }
-        //Retirar o 'false.' atraves do splice 
-        resp.splice(fim);
         //retorna o array com as musicas
         return (resp);
     }

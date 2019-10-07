@@ -21,7 +21,11 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 
 //Cria a variavel musica
 var mus;
+//Cria a variavel genero
 var gen;
+//Cria a variavel cantor
+var cant;
+
 var i;
 var fim;
 var resp;
@@ -29,20 +33,30 @@ var resp;
 function genero(msg) {
     //Recebe o texto da musica
     gen = (msg.text.substring(3));
-    mus = 'Música';
-    console.log(gen)
-    playlist(msg, mus, gen);
+    mus = 'Musica';
+    cant = 'Cantor';
+    console.log('Genero',gen)
+    playlist(msg, mus, gen, cant);
 };
 function musica(msg) {
     //Recebe o texto da musica
     mus = (msg.text.substring(3));
     gen = 'Genero';
-    console.log(mus)
-    playlist(msg, mus, gen);
+    cant = 'Cantor';
+    console.log('Música',mus)
+    playlist(msg, mus, gen, cant);
+};
+function cantor(msg) {
+    //Recebe o texto da musica
+    cant = (msg.text.substring(3));
+    gen = 'Genero';
+    mus = 'Musica';
+    console.log('Cantor',cant)
+    playlist(msg, mus, gen, cant);
 };
 function playlist(msg, musicas, gen) {
     //Resposta ganhando o return da pergunta que passa o que gosta
-    resp = prolog.pergunta(musicas, gen);
+    resp = prolog.pergunta(musicas, gen, cant);
     //Passa o array mandando as musicas
     for (i = 0; i < resp.length; i++) {
         bot.sendMessage(msg.chat.id, resp[i])
@@ -50,7 +64,7 @@ function playlist(msg, musicas, gen) {
 };
 //Boas Vindas 
 function start(msg) {
-    bot.sendMessage(msg.chat.id, "/M Musica \n \n \t Generos: \n Rock \n Pop \n Alternativo \n Gospel \n MPB \n Funk \n Sertanejo \n Eletrônica \n");
+    bot.sendMessage(msg.chat.id, "/M Musica \n /G Generos \n \n \t Generos: \n Rock \n Pop \n Alternativo \n Gospel \n MPB \n Funk \n Sertanejo \n Eletrônica \n");
 }
 //Chamada de Start
 bot.onText(/\/start/, (msg) => start(msg));
@@ -60,6 +74,8 @@ bot.onText(/\/playlist/, (msg) => playlist(msg, mus));
 bot.onText(/\/M (.*)/, (msg) => musica(msg));
 //Chamada por Genero
 bot.onText(/\/G (.*)/, (msg) => genero(msg));
+//Chamada por Cantor
+bot.onText(/\/C (.*)/, (msg) => cantor(msg));
 
 
 
