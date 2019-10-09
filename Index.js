@@ -11,11 +11,18 @@ const prologfile = require('./Prolog');
 const TOKEN =
     //#region BoT TOKEM || NÂO MECHER 
 
-//Herokus 
+    //Herokus 
     '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q'
-    //#endregion
+//#endregion
 
 //Construção do BoT
+
+const express = require('express')
+
+const PORT = process.env.PORT || 5000
+
+express()
+    .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 
@@ -37,7 +44,7 @@ function genero(msg) {
     gen = (msg.text.substring(3));
     mus = 'Musica';
     cant = 'Cantor';
-    console.log('Genero',gen)
+    console.log('Genero', gen)
     prolog(msg, mus, gen, cant);
 };
 function musica(msg) {
@@ -45,7 +52,7 @@ function musica(msg) {
     mus = (msg.text.substring(3));
     gen = 'Genero';
     cant = 'Cantor';
-    console.log('Música',mus)
+    console.log('Música', mus)
     prolog(msg, mus, gen, cant);
 };
 function cantor(msg) {
@@ -53,7 +60,7 @@ function cantor(msg) {
     cant = (msg.text.substring(3));
     gen = 'Genero';
     mus = 'Musica';
-    console.log('Cantor',cant)
+    console.log('Cantor', cant)
     prolog(msg, mus, gen, cant);
 };
 function prolog(msg, musicas, gen, cant) {
