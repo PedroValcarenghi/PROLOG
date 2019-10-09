@@ -17,6 +17,7 @@ const TOKEN =
 
 //Construção do BoT
 
+//Porta
 const express = require('express')
 
 const PORT = process.env.PORT || 5000
@@ -25,6 +26,12 @@ express()
     .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 const bot = new TelegramBot(TOKEN, { polling: true });
+
+//Ficar Pingando o Bot
+var http = require("http");
+setInterval(function () {
+    http.get("http://<your app name>.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
 
 //Declaração de variaveis.
 
@@ -76,7 +83,7 @@ function all(msg) {
 }
 //Boas Vindas 
 function start(msg) {
-    bot.sendMessage(msg.chat.id, "/M Musica \n /G Generos \n \n \t Generos: \n Rock \n Pop \n Alternativo \n Gospel \n MPB \n Funk \n Sertanejo \n Eletrônica \n");
+    bot.sendMessage(msg.chat.id, "/M Musica \n /G Generos \n  /C Generos \n \n \t Generos: \n Rock \n Pop \n Alternativo \n Gospel \n MPB \n Funk \n Sertanejo \n Eletrônica \n");
 }
 //Chamada de Start
 bot.onText(/\/start/, (msg) => start(msg));
