@@ -116,7 +116,6 @@ module.exports = {
         console.log(mus, gen, cant);
         // Consulta -- Ainda não termindada--
         if (mus == 'X' || gen == 'Y' || cant == 'Z') {
-            console.log('teste');
             session.query("musica(Musica , Genero , Cantor ,Link ).");
         }
         else if (mus != 'Musica') {

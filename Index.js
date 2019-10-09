@@ -44,7 +44,7 @@ function genero(msg) {
     gen = (msg.text.substring(3));
     mus = 'Musica';
     cant = 'Cantor';
-    console.log('Genero', gen)
+    //console.log('Genero', gen)
     prolog(msg, mus, gen, cant);
 };
 function musica(msg) {
@@ -52,7 +52,7 @@ function musica(msg) {
     mus = (msg.text.substring(3));
     gen = 'Genero';
     cant = 'Cantor';
-    console.log('Música', mus)
+    //console.log('Música', mus)
     prolog(msg, mus, gen, cant);
 };
 function cantor(msg) {
@@ -60,7 +60,7 @@ function cantor(msg) {
     cant = (msg.text.substring(3));
     gen = 'Genero';
     mus = 'Musica';
-    console.log('Cantor', cant)
+    //console.log('Cantor', cant)
     prolog(msg, mus, gen, cant);
 };
 function prolog(msg, musicas, gen, cant) {
@@ -73,8 +73,6 @@ function prolog(msg, musicas, gen, cant) {
 };
 function all(msg) {
     prolog(msg, 'X', 'Y', 'Z');
-
-
 }
 //Boas Vindas 
 function start(msg) {
