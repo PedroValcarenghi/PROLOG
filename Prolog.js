@@ -112,8 +112,6 @@ module.exports = {
             "musica('La Belle De Jour',      'MPB', 'Alceu Valença',  'https://open.spotify.com/track/0c8aqUb7e0K9uNhxejfV23').";
 
         session.consult(program);
-        //TO-DO
-        console.log(mus, gen, cant);
         // Consulta -- Ainda não termindada--
         if (mus == 'X' || gen == 'Y' || cant == 'Z') {
             session.query("musica(Musica , Genero , Cantor ,Link ).");
