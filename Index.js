@@ -83,7 +83,7 @@ function all(msg) {
 }
 //Boas Vindas 
 function start(msg) {
-    bot.sendMessage(msg.chat.id, "/M Musica \n /G Generos \n  /C Generos \n \n \t Generos: \n Rock \n Pop \n Alternativo \n Gospel \n MPB \n Funk \n Sertanejo \n Eletrônica \n");
+    bot.sendMessage(msg.chat.id, "/M Musica \n /G Generos \n  /C Cantor \n \n \t Generos: \n Rock \n Pop \n Alternativo \n Gospel \n MPB \n Funk \n Sertanejo \n Eletrônica \n");
 }
 //Chamada de Start
 bot.onText(/\/start/, (msg) => start(msg));
