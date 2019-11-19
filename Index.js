@@ -8,11 +8,8 @@ const prologfile = require('./Prolog');
 
 //Uso do Token do Telegeram
 
-const TOKEN =
+//const TOKEN = ||Aqui vai seu Token||
     //#region BoT TOKEM || NÂO MECHER 
-
-    //Herokus 
-    '836807007:AAEA8rBgFFLCvOdpJ9bSz4VG8oNxE7xcR4Q'
 //#endregion
 
 //Construção do BoT
