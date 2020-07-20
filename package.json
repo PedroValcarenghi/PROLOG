@@ -21,5 +21,6 @@
     "express": "^4.17.1",
     "node-telegram-bot-api": "^0.30.0",
     "tau-prolog": "^0.2.66"
+    "lodash": ">=4.17.19"
   }
 }
